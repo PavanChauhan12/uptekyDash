@@ -13,12 +13,12 @@ app.use(express.json());
 // Connect to MongoDB
 connectDB();
 
-app.get('/api/health', (req, res) => res.json({ ok: true, time: new Date().toISOString() }));
+app.get('/health', (req, res) => res.json({ ok: true, time: new Date().toISOString() }));
 
 // API routes
-app.use('/api/auth', authRoutes);
-app.use('/api/feedback', feedbackRoutes);
-app.use('/api/stats', statsRoutes);
+app.use('/auth', authRoutes);
+app.use('/feedback', feedbackRoutes);
+app.use('/stats', statsRoutes);
 
 // Generic error handler
 app.use((err, req, res, next) => {
